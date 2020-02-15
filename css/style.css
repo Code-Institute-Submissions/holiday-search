@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico|Work+Sans:900&display=swap');
+
+body {
+    background-color: #50C9CE;
+    color: #E55934;
+}
+
+
+/* Header */
+
+header {
+    background-color: #E55934;
+    color: #50C9CE;
+    width: 60vw;
+    margin: auto;
+    text-align: center;
+    box-shadow: 0px 2px 4px 1px #000;
+    border-radius: 0 0 20px 20px;
+}
+
+.logo {
+    font-size: 80px;
+    font-family: 'Pacifico', cursive;
+    text-shadow: 2px 2px 4px #000;
+}
+
+.logo-text{
+    font-size: 20px;
+    font-family: 'Work Sans', sans-serif;
+    text-shadow: 2px 2px 4px #000;
+}
+
+/* Media Queries */
+
+@media (min-width: 371px) {
+    .logo-text{
+        font-size: 30px;
+    }
+}
