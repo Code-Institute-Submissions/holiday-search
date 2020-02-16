@@ -42,6 +42,7 @@ header {
     padding: 20px;
     font-size: 15px;
     border-radius: 15px;
+    box-shadow: 2px 2px 5px #000;
 }
 
 ::placeholder {
@@ -61,6 +62,9 @@ header {
     box-shadow: 0 0 4px #000;
     text-transform: uppercase;
     letter-spacing: 1.5px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #000;
 }
 
 /* Media Queries */
