@@ -31,14 +31,26 @@
 		<!--Below show results of the users' location search-->
 		<div class="container">
 			<div class="row">
-				<div class="col-md-12 col-lg-4 results"><i class="fas fa-landmark"></i> Attractions
-					<i class="fas fa-angle-down"></i></div>
-				<div class="col-md-12 col-lg-4 results"><i class="fas fa-hotel"></i> Accommodation
-					<i class="fas fa-angle-down"></i></div>
-				<div class="col-md-12 col-lg-4 results"><i class="fas fa-utensils"></i> Bars & Restaurants
-					<i class="fas fa-angle-down"></i></div>
+				<div class="col-md-12 col-lg-4">
+					<div class="results"><i class="fas fa-landmark"></i> Attractions
+						<i class="fas fa-angle-down"></i></div>
+					<div id="attr-map"></div>
+				</div>
+				<div class="col-md-12 col-lg-4">
+					<div class="results"><i class="fas fa-hotel"></i> Accommodation
+						<i class="fas fa-angle-down"></i></div>
+				</div>
+				<div class="col-md-12 col-lg-4">
+					<div class="results"><i class="fas fa-utensils"></i> Bars & Restaurants
+						<i class="fas fa-angle-down"></i></div>
+				</div>
 			</div>
 		</div>
 </body>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoStH7CpH64Bgbv7vxBCeKOb9QrT8zX4o&libraries=places"></script>
+<script async defer
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoStH7CpH64Bgbv7vxBCeKOb9QrT8zX4o&callback=initMap"
+	type="text/javascript"></script>
+<script type="text/javascript"
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoStH7CpH64Bgbv7vxBCeKOb9QrT8zX4o&libraries=places"></script>
+
 </html>

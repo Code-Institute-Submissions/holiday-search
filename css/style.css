@@ -76,9 +76,8 @@ header {
 }
 
 
-@media (min-width: 991px) and (max-width: 1200px) {
+@media (min-width: 991px) {
     .results {
-        font-size: 21px;
+        font-size: 18px;
     }
 }
-*/
