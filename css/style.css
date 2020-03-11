@@ -48,7 +48,9 @@ header {
 ::placeholder {
     color: #dadada;
     text-shadow: 0px 0px 4px #000;
-}/* Results */
+}
+
+/* Results */
 
 .results {
     background-color: #E55934;
@@ -65,6 +67,40 @@ header {
     border-width: 2px;
     border-style: solid;
     border-color: #000;
+}
+
+
+/* Search Countries List */
+
+.countrySelect {
+   text-align: center
+}
+
+#countryList {
+    border-style: solid;
+    border-color: black;
+}
+
+
+/* Search Button */
+
+.searchButton {
+    background-color: #E55934;
+    color: #50C9CE;
+    text-shadow: 0px 0px 4px #000;
+    margin: 0;
+    width: auto;
+    padding: 11px;
+    font-size: 15px;
+    border-radius: 15px;
+    box-shadow: -2px -2px 5px #000;
+}
+
+/* Map */
+
+#map {
+    height: 60vh;
+    width: auto;
 }
 
 /* Media Queries */

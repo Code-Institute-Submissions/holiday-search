@@ -25,16 +25,31 @@
 		</div>
 	</header>
 	<!--Below code is for the search bar, where users can input a location-->
-	<div>
-		<input id="searchbar" type="text" placeholder="Enter Your Destination Here">
-	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-lg-6">
+				<input id="searchbar" class="searchTools" type="text" placeholder="Enter Your Destination Here">
+        </div>
+				<div class="col-md-12 col-lg-3 countrySelect">
+					<select id="countryList">
+        <option value="lat=55.378051,longitude=-3.435973">United Kingdom</option>
+        <option value="lat=37.09024,longitude=-95.712891">United States</option>
+
+        </select>
+				</div>
+				<div class="col-md-12 col-lg-3 searchTools">
+					<button id="searchLocation" class="searchButton" onClick="searchLocation()">Search</button>
+				</div>
+			</div>
+		</div>
+
 		<!--Below show results of the users' location search-->
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 col-lg-4">
 					<div class="results"><i class="fas fa-landmark"></i> Attractions
-						<i class="fas fa-angle-down"></i></div>
-					<div id="attr-map"></div>
+						<i class="fas fa-angle-down"></i>
+					</div>
 				</div>
 				<div class="col-md-12 col-lg-4">
 					<div class="results"><i class="fas fa-hotel"></i> Accommodation
@@ -46,11 +61,13 @@
 				</div>
 			</div>
 		</div>
+		<div class="container">
+			<div id="map"></div>
+		</div>
 </body>
 <script async defer
-	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoStH7CpH64Bgbv7vxBCeKOb9QrT8zX4o&callback=initMap"
-	type="text/javascript"></script>
-<script type="text/javascript"
-	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoStH7CpH64Bgbv7vxBCeKOb9QrT8zX4o&libraries=places"></script>
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoStH7CpH64Bgbv7vxBCeKOb9QrT8zX4o&callback=initMap&libraries=places"
+	type="text/javascript">
+</script>
 
 </html>
