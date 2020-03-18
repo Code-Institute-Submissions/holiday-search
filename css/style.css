@@ -96,6 +96,12 @@ header {
     box-shadow: -2px -2px 5px #000;
 }
 
+#attr-results, #accom-results, #bars-results, #results {
+    height:50vh;
+    width:auto;
+    display: none;
+}
+
 /* Map */
 
 #map {

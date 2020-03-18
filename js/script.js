@@ -1,9 +1,12 @@
+// The below code has been imported from Google Maps Autocomplete Documentation and adapted for this application
+// A copy of the code can be found here: "https://developers.google.com/maps/documentation/javascript/examples/places-searchbox"
+
 function initAutocomplete() {
     var map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: 51.5073509, lng: -0.1277583 },
         zoom: 13
     });
-    
+
     // Create the search box and link it to the UI element.
     var input = document.getElementById('pac-input');
     var searchBox = new google.maps.places.SearchBox(input);
