@@ -24,58 +24,81 @@
 			</div>
 		</div>
 	</header>
-	<!--Below code is for the search bar, where users can input a location-->
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<!--Class above for grid layout needed if below commented out code is used-->
-				<input id="pac-input" class="searchTools" type="text" placeholder="Enter Your Destination Here">
-        </div>
-				<!-- ** Below Code is potentually not needed, depending on how well I can get the autocmplete to work **
-                <div class="col-md-12 col-lg-3 countrySelect">
-					<select id="countryList">
-        <option value="lat=55.378051,longitude=-3.435973">United Kingdom</option>
-        <option value="lat=37.09024,longitude=-95.712891">United States</option>
+	<main>
+		<div class="container">
+			<div class="hotel-search">
+				<input id="autocomplete" class="searchTools" type="text" placeholder="Enter Your Destination Here">
+            </div>
 
-        </select> 
-				</div>
-				<div class="col-md-12 col-lg-3 searchTools">
-					<button id="searchLocation" class="searchButton" onClick="searchLocation()">Search</button>
-				</div>
-			</div>
-		</div> -->
-
-				<!--Below show results of the users' location search-->
-				<div class="container">
+				<div>
 					<div class="row">
 						<div class="col-md-12 col-lg-4">
-							<div class="results"><i class="fas fa-landmark"></i> Attractions
+							<div class="results-heading"><i class="fas fa-landmark"></i> Attractions
 								<i class="fas fa-angle-down"></i>
 							</div>
-							<div id="attr-results"></div>
+							<div class="attr-list">
+								<table class="results-table">
+									<tbody id="attrResults"></tbody>
+								</table>
+							</div>
 						</div>
 						<div class="col-md-12 col-lg-4">
-							<div class="results"><i class="fas fa-hotel"></i> Accommodation
+							<div class="results-heading"><i class="fas fa-hotel"></i> Accommodation
 								<i class="fas fa-angle-down"></i>
 							</div>
-							<div id="accom-results"></div>
+							<div class="hotel-list">
+								<table class="results-table">
+									<tbody id="hotelResults"></tbody>
+								</table>
+							</div>
 						</div>
 						<div class="col-md-12 col-lg-4">
-							<div id="bars" class="results"><i class="fas fa-utensils"></i> Bars & Restaurants
+							<div id="bars" class="results-heading"><i class="fas fa-utensils"></i> Bars & Restaurants
 								<i class="fas fa-angle-down"></i>
 							</div>
-							<div id="bars-results"></div>
+							<div class="bars-list">
+								<table class="results-table">
+									<tbody id="barsResults"></tbody>
+								</table>
+							</div>
 						</div>
 					</div>
 				</div>
 
-				<div class="container">
-					<div id="map"></div>
+				<div id="map"></div>
+
+				<div style="display: none">
+					<div id="info-content">
+						<table>
+							<tr id="iw-url-row" class="iw_table_row">
+								<td id="iw-icon" class="iw_table_icon"></td>
+								<td id="iw-url"></td>
+							</tr>
+							<tr id="iw-address-row" class="iw_table_row">
+								<td class="iw_attribute_name">Address:</td>
+								<td id="iw-address"></td>
+							</tr>
+							<tr id="iw-phone-row" class="iw_table_row">
+								<td class="iw_attribute_name">Telephone:</td>
+								<td id="iw-phone"></td>
+							</tr>
+							<tr id="iw-rating-row" class="iw_table_row">
+								<td class="iw_attribute_name">Rating:</td>
+								<td id="iw-rating"></td>
+							</tr>
+							<tr id="iw-website-row" class="iw_table_row">
+								<td class="iw_attribute_name">Website:</td>
+								<td id="iw-website"></td>
+							</tr>
+						</table>
+					</div>
 				</div>
+				<!-- Replace the value of the key parameter with your own API key. -->
+				<script
+					src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoStH7CpH64Bgbv7vxBCeKOb9QrT8zX4o&libraries=places&callback=initMap"
+					async defer></script>
+			</div>
+	</main>
 </body>
-<script async defer
-	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoStH7CpH64Bgbv7vxBCeKOb9QrT8zX4o&libraries=places&callback=initAutocomplete"
-	type="text/javascript">
-</script>
 
 </html>
