@@ -39,18 +39,18 @@ function initMap() {
         if (place.geometry) {
             map.panTo(place.geometry.location);
             map.setZoom(15);
-            search();
+            hotelSearch();
         } else {
             document.getElementById('autocomplete').placeholder = 'Enter a city';
         }
     }
 
     // Search for hotels in the selected city, within the viewport of the map.
-    function search() {
+    function hotelSearch() {
         var search = {
             bounds: map.getBounds(),
             types: ['lodging']
-        };
+        };        
 
         places.nearbySearch(search, function (results, status) {
             if (status === google.maps.places.PlacesServiceStatus.OK) {
@@ -60,6 +60,70 @@ function initMap() {
                 // assign a letter of the alphabetic to each marker icon.
                 for (var i = 0; i < results.length; i++) {
                     var markerIcon = "http://maps.google.com/mapfiles/kml/pal2/icon20.png";
+                    // Use marker animation to drop the icons incrementally on the map.
+                    markers[i] = new google.maps.Marker({
+                        position: results[i].geometry.location,
+                        animation: google.maps.Animation.DROP,
+                        icon: markerIcon
+                    });
+                    // If the user clicks a hotel marker, show the details of that hotel
+                    // in an info window.
+                    markers[i].placeResult = results[i];
+                    google.maps.event.addListener(markers[i], 'click', showInfoWindow);
+                    setTimeout(dropMarker(i), i * 100);
+                    addResult(results[i], i);
+                }
+            }
+        });
+    }
+
+    // Search for attractions in the selected city, within the viewport of the map.
+    function attractionsSearch() {
+        var search = {
+            bounds: map.getBounds(),
+            types: ['museum', 'art_gallery', 'amusement_park', 'aquarium', 'zoo', 'tourist_attraction']
+        };        
+
+        places.nearbySearch(search, function (results, status) {
+            if (status === google.maps.places.PlacesServiceStatus.OK) {
+                clearResults();
+                clearMarkers();
+                // Create a marker for each hotel found, and
+                // assign a letter of the alphabetic to each marker icon.
+                for (var i = 0; i < results.length; i++) {
+                    var markerIcon = "http://maps.google.com/mapfiles/kml/pal4/icon46.png";
+                    // Use marker animation to drop the icons incrementally on the map.
+                    markers[i] = new google.maps.Marker({
+                        position: results[i].geometry.location,
+                        animation: google.maps.Animation.DROP,
+                        icon: markerIcon
+                    });
+                    // If the user clicks a hotel marker, show the details of that hotel
+                    // in an info window.
+                    markers[i].placeResult = results[i];
+                    google.maps.event.addListener(markers[i], 'click', showInfoWindow);
+                    setTimeout(dropMarker(i), i * 100);
+                    addResult(results[i], i);
+                }
+            }
+        });
+    }
+
+    // Search for bars and restaurants in the selected city, within the viewport of the map.
+    function barSearch() {
+        var search = {
+            bounds: map.getBounds(),
+            types: ['bar', 'restaurant']
+        };        
+
+        places.nearbySearch(search, function (results, status) {
+            if (status === google.maps.places.PlacesServiceStatus.OK) {
+                clearResults();
+                clearMarkers();
+                // Create a marker for each hotel found, and
+                // assign a letter of the alphabetic to each marker icon.
+                for (var i = 0; i < results.length; i++) {
+                    var markerIcon = "http://maps.google.com/mapfiles/kml/pal2/icon32.png";
                     // Use marker animation to drop the icons incrementally on the map.
                     markers[i] = new google.maps.Marker({
                         position: results[i].geometry.location,
