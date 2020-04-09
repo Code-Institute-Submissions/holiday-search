@@ -64,6 +64,7 @@ function initAutocomplete() {
             } else {
                 bounds.extend(place.geometry.location);
             }
+
         });
         map.fitBounds(bounds);
     });
