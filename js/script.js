@@ -6,7 +6,6 @@
 var map, places, infoWindow;
 var markers = [];
 var autocomplete;
-var MARKER_PATH = 'https://developers.google.com/maps/documentation/javascript/images/marker_green';
 var hostnameRegexp = new RegExp('^https?://.+?/');
 
 
@@ -32,6 +31,42 @@ function initMap() {
 
     autocomplete.addListener('place_changed', onPlaceChanged);
 
+
+    // Linked to the 3 place type headings, when one is clicked, make that one true, and the other two false
+    // This will be used to trigger the different types of places that are being displayed on the map
+    // If place type == 0, no results list will be shown (for that type). 
+    // If place type == 1, those results will be shown.
+    var attractionsClicked = 0;
+    var accommodationClicked = 0;
+    var barsClicked = 0;
+
+    $("#attractions").click(function () {
+        attractionsClicked = 1;
+        accommodationClicked = 0;
+        barsClicked = 0;
+        console.log(barsClicked);
+        console.log(accommodationClicked);
+        console.log(attractionsClicked);
+    });
+
+     $("#accommodation").click(function () {
+        accommodationClicked = 1;
+        attractionsClicked = 0;
+        barsClicked = 0;
+        console.log(barsClicked);
+        console.log(accommodationClicked);
+        console.log(attractionsClicked);
+    });
+
+     $("#bars").click(function () {
+        barsClicked = 1;
+        accommodationClicked = 0;
+        attractionsClicked = 0;
+        console.log(barsClicked);
+        console.log(accommodationClicked);
+        console.log(attractionsClicked);
+    });
+
     // When the user selects a city, get the place details for the city and
     // zoom the map in on the city.
     function onPlaceChanged() {
@@ -43,14 +78,14 @@ function initMap() {
         } else {
             document.getElementById('autocomplete').placeholder = 'Enter a city';
         }
-    }
+    };
 
     // Search for hotels in the selected city, within the viewport of the map.
     function hotelSearch() {
         var search = {
             bounds: map.getBounds(),
             types: ['lodging']
-        };        
+        };
 
         places.nearbySearch(search, function (results, status) {
             if (status === google.maps.places.PlacesServiceStatus.OK) {
@@ -82,7 +117,7 @@ function initMap() {
         var search = {
             bounds: map.getBounds(),
             types: ['museum', 'art_gallery', 'amusement_park', 'aquarium', 'zoo', 'tourist_attraction']
-        };        
+        };
 
         places.nearbySearch(search, function (results, status) {
             if (status === google.maps.places.PlacesServiceStatus.OK) {
@@ -114,7 +149,7 @@ function initMap() {
         var search = {
             bounds: map.getBounds(),
             types: ['bar', 'restaurant']
-        };        
+        };
 
         places.nearbySearch(search, function (results, status) {
             if (status === google.maps.places.PlacesServiceStatus.OK) {
