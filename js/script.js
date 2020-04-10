@@ -47,6 +47,7 @@ function initMap() {
         console.log(barsClicked);
         console.log(accommodationClicked);
         console.log(attractionsClicked);
+        return onPlaceChanged();
     });
 
      $("#accommodation").click(function () {
@@ -56,6 +57,7 @@ function initMap() {
         console.log(barsClicked);
         console.log(accommodationClicked);
         console.log(attractionsClicked);
+        return onPlaceChanged();
     });
 
      $("#bars").click(function () {
@@ -65,7 +67,20 @@ function initMap() {
         console.log(barsClicked);
         console.log(accommodationClicked);
         console.log(attractionsClicked);
+        return onPlaceChanged();
     });
+
+    function search() {
+        if (attractionsClicked == 1) {
+            return attractionsSearch();
+        }
+        else if (accommodationClicked == 1) {
+            return hotelSearch();
+        }
+        else if (barsClicked == 1) {
+            return barSearch();
+        }
+    };
 
     // When the user selects a city, get the place details for the city and
     // zoom the map in on the city.
@@ -74,9 +89,9 @@ function initMap() {
         if (place.geometry) {
             map.panTo(place.geometry.location);
             map.setZoom(15);
-            hotelSearch();
+            search();
         } else {
-            document.getElementById('autocomplete').placeholder = 'Enter a city';
+            document.getElementById('autocomplete').placeholder = 'Enter Your Destination Here';
         }
     };
 
@@ -192,7 +207,7 @@ function initMap() {
             markers[i].setMap(map);
         };
     }
-
+    
     function addResult(result, i) {
         var results = document.getElementById('hotelResults');
         var markerIcon = "http://maps.google.com/mapfiles/kml/pal2/icon20.png";
