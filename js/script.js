@@ -47,8 +47,6 @@ function initMap() {
         $("tbody").removeClass("results-positioning-center");
         $("tbody").removeClass("results-positioning-right");
         $("tbody").addClass("results-positioning-left");
-
-        // resultsList = attractionsResultsList;
         return onPlaceChanged();
     });
 
@@ -59,7 +57,6 @@ function initMap() {
         $("tbody").removeClass("results-positioning-left");
         $("tbody").removeClass("results-positioning-right");
         $("tbody").addClass("results-positioning-center");
-        // resultsList = hotelResultsList;
         return onPlaceChanged();
     });
 
@@ -70,7 +67,6 @@ function initMap() {
         $("tbody").removeClass("results-positioning-left");
         $("tbody").removeClass("results-positioning-center");
         $("tbody").addClass("results-positioning-right");
-        // resultsList = barsResultsList;
         return onPlaceChanged();
     });
 
@@ -209,17 +205,6 @@ function initMap() {
             markers[i].setMap(map);
         };
     }
-
-    /* Code used to attempt to change the addResult getElementById. 
-        Successful to add the results table, however not remove the others.
-    
-        var hotelResultsList = 'hotelResults';
-        var barsResultsList = 'barsResults';
-        var attractionsResultsList = 'attrResults';
-    
-        var resultsList = '';
-    
-        */
 
     function addResult(result, i) {
         var results = document.getElementById('results');
