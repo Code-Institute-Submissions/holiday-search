@@ -67,19 +67,35 @@ header {
     border-width: 2px;
     border-style: solid;
     border-color: #000;
+    cursor: pointer;
 }
 
-#hotelResults, #attrResults, #barsResults {
+#results {
     font-size: 14px;
     padding: 5px 0;
     display: block;
     height: auto;
     width: auto;
+} 
+
+/* Results positioning */
+.results-positioning-left {
+    text-align: -webkit-left;
+    text-align: -moz-left;
+    text-align: -ms-left;
+}
+
+.results-positioning-center {
     text-align: -webkit-center;
     text-align: -moz-center;
     text-align: -ms-center;
-    
-} 
+}
+
+.results-positioning-right {
+    text-align: -webkit-right;
+    text-align: -moz-right;
+    text-align: -ms-right;
+}
 
 .hotel-list, .bars-list, .attr-list {
   height: 30vh;

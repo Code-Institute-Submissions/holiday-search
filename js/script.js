@@ -20,7 +20,7 @@ function initMap() {
     });
 
     // Create the autocomplete object and associate it with the UI input control.
-    // Restrict the search to the default country, and to place type "cities".
+    // Restrict the search to place type "cities".
     autocomplete = new google.maps.places.Autocomplete(
       /** @type {!HTMLInputElement} */(
             document.getElementById('autocomplete')), {
@@ -44,29 +44,33 @@ function initMap() {
         attractionsClicked = 1;
         accommodationClicked = 0;
         barsClicked = 0;
-        console.log(barsClicked);
-        console.log(accommodationClicked);
-        console.log(attractionsClicked);
+        $("tbody").removeClass("results-positioning-center");
+        $("tbody").removeClass("results-positioning-right");
+        $("tbody").addClass("results-positioning-left");
+
+        // resultsList = attractionsResultsList;
         return onPlaceChanged();
     });
 
-     $("#accommodation").click(function () {
+    $("#accommodation").click(function () {
         accommodationClicked = 1;
         attractionsClicked = 0;
         barsClicked = 0;
-        console.log(barsClicked);
-        console.log(accommodationClicked);
-        console.log(attractionsClicked);
+        $("tbody").removeClass("results-positioning-left");
+        $("tbody").removeClass("results-positioning-right");
+        $("tbody").addClass("results-positioning-center");
+        // resultsList = hotelResultsList;
         return onPlaceChanged();
     });
 
-     $("#bars").click(function () {
+    $("#bars").click(function () {
         barsClicked = 1;
         accommodationClicked = 0;
         attractionsClicked = 0;
-        console.log(barsClicked);
-        console.log(accommodationClicked);
-        console.log(attractionsClicked);
+        $("tbody").removeClass("results-positioning-left");
+        $("tbody").removeClass("results-positioning-center");
+        $("tbody").addClass("results-positioning-right");
+        // resultsList = barsResultsList;
         return onPlaceChanged();
     });
 
@@ -88,7 +92,7 @@ function initMap() {
         var place = autocomplete.getPlace();
         if (place.geometry) {
             map.panTo(place.geometry.location);
-            map.setZoom(15);
+            map.setZoom(13);
             search();
         } else {
             document.getElementById('autocomplete').placeholder = 'Enter Your Destination Here';
@@ -200,16 +204,25 @@ function initMap() {
         markers = [];
     }
 
-
-
     function dropMarker(i) {
         return function () {
             markers[i].setMap(map);
         };
     }
+
+    /* Code used to attempt to change the addResult getElementById. 
+        Successful to add the results table, however not remove the others.
     
+        var hotelResultsList = 'hotelResults';
+        var barsResultsList = 'barsResults';
+        var attractionsResultsList = 'attrResults';
+    
+        var resultsList = '';
+    
+        */
+
     function addResult(result, i) {
-        var results = document.getElementById('hotelResults');
+        var results = document.getElementById('results');
         var markerIcon = "http://maps.google.com/mapfiles/kml/pal2/icon20.png";
 
         var tr = document.createElement('tr');
@@ -233,9 +246,9 @@ function initMap() {
     }
 
     function clearResults() {
-        var results = document.getElementById('hotelResults');
+        var results = document.getElementById('results');
         while (results.childNodes[0]) {
-            results.removeChild(hotelResults.childNodes[0]);
+            results.removeChild(results.childNodes[0]);
         }
     }
 
