@@ -71,7 +71,7 @@ header {
 }
 
 #results {
-    font-size: 14px;
+    font-size: 30px;
     padding: 5px 0;
     display: block;
     height: auto;
@@ -97,7 +97,7 @@ header {
     text-align: -ms-center;
 }
 
-.hotel-list, .bars-list, .attr-list {
+.results-list {
   height: 30vh;
   overflow: auto;
   top: 0px;
@@ -110,19 +110,20 @@ header {
   margin: 4px;
 }
 
-.hotelIcon {
+.placeTypeIcon {
   width: 24px;
   height: 24px;
+}
+
+/* Results table will be hidden until a type request is made (e.g. $("#accommodation").click(function ()) */
+.hide-results {
+    display: none;
 }
 
 .results-table {
   border-collapse: collapse;
   display: block;
   text-align: -webkit-center;
-}
-
-#rating {
-  font-size: 13px;
 }
 
 /* Table */ 
@@ -137,6 +138,13 @@ header {
 .iw_table_icon {
   text-align: right;
 }
+
+tr {
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+}
+
 
 /* Map */
 
@@ -165,12 +173,6 @@ header {
     text-align: -webkit-left;
     text-align: -moz-left;
     text-align: -ms-left;
-    }
-
-.results-positioning-center {
-    text-align: -webkit-center;
-    text-align: -moz-center;
-    text-align: -ms-center;
     }
 
 .results-positioning-right /* center on mobile, right on desktop */ {

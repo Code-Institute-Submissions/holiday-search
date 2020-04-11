@@ -49,6 +49,7 @@ function initMap() {
         $("tbody").removeClass("results-positioning-center");
         $("tbody").removeClass("results-positioning-right");
         $("tbody").addClass("results-positioning-left");
+        $("#results-table-div").removeClass("hide-results");
         return onPlaceChanged();
     });
 
@@ -60,6 +61,7 @@ function initMap() {
         $("tbody").removeClass("results-positioning-left");
         $("tbody").removeClass("results-positioning-right");
         $("tbody").addClass("results-positioning-center");
+        $("#results-table-div").removeClass("hide-results");
         return onPlaceChanged();
     });
 
@@ -71,6 +73,7 @@ function initMap() {
         $("tbody").removeClass("results-positioning-left");
         $("tbody").removeClass("results-positioning-center");
         $("tbody").addClass("results-positioning-right");
+        $("#results-table-div").removeClass("hide-results");
         return onPlaceChanged();
     });
 
@@ -154,7 +157,8 @@ function initMap() {
         var markerIcon = `${markerIconType}`;
 
         var tr = document.createElement('tr');
-        tr.style.backgroundColor = (i % 2 === 0 ? '#F0F0F0' : '#FFFFFF');
+        tr.style.backgroundColor = (i % 2 === 0 ? '#50C9CE' : '#E55934');
+        tr.style.color = (i % 2 === 0 ? '#E55934' : '#50C9CE');
         tr.onclick = function () {
             google.maps.event.trigger(markers[i], 'click');
         };
@@ -196,7 +200,7 @@ function initMap() {
 
     // Load the place information into the HTML elements used by the info window.
     function buildIWContent(place) {
-        document.getElementById('iw-icon').innerHTML = '<img class="hotelIcon" ' +
+        document.getElementById('iw-icon').innerHTML = '<img class="placeTypeIcon" ' +
             'src="' + place.icon + '"/>';
         document.getElementById('iw-url').innerHTML = '<b><a href="' + place.url +
             '">' + place.name + '</a></b>';
