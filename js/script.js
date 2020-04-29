@@ -3,6 +3,12 @@
 // The purpose of this code is to utilise the Google Places Autocomplete
 // to return results for 3 location types: Accommodation, attractions, bars/restaurants
 
+$(document).ready(function(){
+  $("#site-info").click(function(){
+    $("#site-info-list").toggleClass("show-info-list");
+  });
+});
+
 var map, places, infoWindow;
 var markers = [];
 var autocomplete;
