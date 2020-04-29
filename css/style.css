@@ -20,7 +20,7 @@ header {
 }
 
 .logo {
-    font-size: 80px;
+    font-size: 40px;
     font-family: 'Pacifico', cursive;
     text-shadow: 2px 2px 1px #000;
 }
@@ -39,7 +39,7 @@ header {
     text-shadow: 2px 2px 1px #000;
     margin: 10%;
     width: 80%;
-    padding: 20px;
+    padding: 10px;
     font-size: 15px;
     border-radius: 15px;
     box-shadow: 2px 2px 5px #000;
@@ -52,26 +52,31 @@ header {
 
 /* Results */
 
+.headings-div {
+    margin-bottom: 15px;
+}
+
 .results-heading {
     background-color: #E55934;
     color: #50C9CE;
-    font-size: 25px;
+    width:75%;
+    font-size: 15px;
     text-shadow: 2px 2px 1px #000;
     text-align: center;
     border-radius: 15px;
-    padding: 10px 0;
-    margin-bottom: 10px;
+    padding: 3px 0;
+    margin: 5px auto;
     box-shadow: 0 0 4px #000;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    border-width: 2px;
+    border-width: 1px;
     border-style: solid;
     border-color: #000;
     cursor: pointer;
 }
 
 #results {
-    font-size: 30px;
+    font-size: 20px;
     text-shadow: 2px 2px 1px #000;
     padding: 5px 0;
     display: block;
@@ -99,7 +104,7 @@ header {
   top: 0px;
   cursor: pointer;
   overflow-x: hidden;
-  margin: 5px 0 15px 0;
+  margin: 5px 0 25px 0;
 }
 
 .placeIcon {
@@ -149,19 +154,35 @@ tr {
     width: auto;
     border-radius: 15px;
     box-shadow: 0px 0px 5px 5px;
-    margin-bottom: 20px;
+    margin: 25px;
 }
 
 /* Media Queries */
 
 @media (min-width: 371px) {
     .logo-text{
-        font-size: 30px;
+        font-size: 20px;
     }
 }
 
 
 @media (min-width: 991px) {
     .results-heading {
-        font-size: 18px;
+    font-size: 18px;
+    padding: 10px 0;
+    border-width: 2px;
+    width: 100%;
     }
+
+    .logo {
+        font-size: 80px;
+    }
+
+    .logo-text {
+        font-size: 40px;
+    }
+
+    #autocomplete {
+        padding: 20px;
+    }
+}
