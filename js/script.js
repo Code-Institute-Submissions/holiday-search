@@ -46,9 +46,9 @@ function initMap() {
         accommodationClicked = 0;
         barsClicked = 0;
         markerIconType = 'http://maps.google.com/mapfiles/kml/pal4/icon46.png'
-        $("tbody").removeClass("results-positioning-center");
-        $("tbody").removeClass("results-positioning-right");
-        $("tbody").addClass("results-positioning-left");
+        $("#attractions").addClass("active-results");
+        $("#accommodation").removeClass("active-results");
+        $("#bars").removeClass("active-results");
         $("#results-table-div").removeClass("hide-results");
         return onPlaceChanged();
     });
@@ -58,9 +58,9 @@ function initMap() {
         attractionsClicked = 0;
         barsClicked = 0;
         markerIconType = 'http://maps.google.com/mapfiles/kml/pal2/icon20.png';
-        $("tbody").removeClass("results-positioning-left");
-        $("tbody").removeClass("results-positioning-right");
-        $("tbody").addClass("results-positioning-center");
+        $("#accommodation").addClass("active-results");
+        $("#attractions").removeClass("active-results");
+        $("#bars").removeClass("active-results");
         $("#results-table-div").removeClass("hide-results");
         return onPlaceChanged();
     });
@@ -70,9 +70,9 @@ function initMap() {
         accommodationClicked = 0;
         attractionsClicked = 0;
         markerIconType = 'http://maps.google.com/mapfiles/kml/pal2/icon32.png'
-        $("tbody").removeClass("results-positioning-left");
-        $("tbody").removeClass("results-positioning-center");
-        $("tbody").addClass("results-positioning-right");
+        $("#bars").addClass("active-results");
+        $("#attractions").removeClass("active-results");
+        $("#accommodation").removeClass("active-results");
         $("#results-table-div").removeClass("hide-results");
         return onPlaceChanged();
     });
