@@ -1,20 +1,23 @@
-// The shell for this code came from the Google Places API Documentation, which can be found at the below link
-// https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-hotelsearch
-// The purpose of this code is to utilise the Google Places Autocomplete
-// to return results for 3 location types: Accommodation, attractions, bars/restaurants
-
+// Toggle the site info 
 $(document).ready(function(){
   $("#site-info").click(function(){
     $("#site-info-list").toggleClass("show-info-list");
   });
 });
 
+
+// The shell for this code came from the Google Places API Documentation, which can be found at the below link
+// https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-hotelsearch
+// The purpose of this code is to utilise the Google Places Autocomplete
+// to return results for 3 location types: Accommodation, attractions, bars/restaurants
+
+
 var map, places, infoWindow;
 var markers = [];
 var autocomplete;
 var hostnameRegexp = new RegExp('^https?://.+?/');
 
-
+// Inisialise the map
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: 51.5073509, lng: -0.1277583 },
@@ -46,7 +49,12 @@ function initMap() {
     var accommodationClicked = 0;
     var barsClicked = 0;
     var markerIconType = '';
-
+    
+    // Each of the following 3 functions handle the way
+    // data is displayed on the website.
+    // When clicked, each of these will trigger
+    // which results are shown to the user
+    // and which are hidden.
     $("#attractions").click(function () {
         attractionsClicked = 1;
         accommodationClicked = 0;
@@ -56,6 +64,7 @@ function initMap() {
         $("#accommodation").removeClass("active-results");
         $("#bars").removeClass("active-results");
         $("#results-table-div").removeClass("hide-results");
+        // Return results for attractions
         return onPlaceChanged();
     });
 
@@ -68,6 +77,7 @@ function initMap() {
         $("#attractions").removeClass("active-results");
         $("#bars").removeClass("active-results");
         $("#results-table-div").removeClass("hide-results");
+        // Return results for accommodation
         return onPlaceChanged();
     });
 
@@ -80,9 +90,14 @@ function initMap() {
         $("#attractions").removeClass("active-results");
         $("#accommodation").removeClass("active-results");
         $("#results-table-div").removeClass("hide-results");
+        // Return results for bars and restaurants
         return onPlaceChanged();
     });
 
+    // This function will change the search type requests
+    // based on which type heading the user clicks on.
+    // It will only show results to the user if they have 
+    // searched for somewhere, and not on the default map location.
     function search() {
         if (attractionsClicked == 1) {
             return typeSearch(['museum', 'art_gallery', 'amusement_park', 'aquarium', 'zoo', 'tourist_attraction']);
@@ -140,7 +155,6 @@ function initMap() {
                 }
             }
         });
-        console.log(typeArray);
     }
 
     function clearMarkers() {
@@ -158,6 +172,8 @@ function initMap() {
         };
     }
 
+    // This functions renders the results of the type search
+    // to a table of results.
     function addResult(result, i) {
         var results = document.getElementById('results');
         var markerIcon = `${markerIconType}`;
@@ -190,8 +206,8 @@ function initMap() {
         }
     }
 
-    // Get the place details for a hotel. Show the information in an info window,
-    // anchored on the marker for the hotel that the user selected.
+    // Get the place details for a type request. Show the information in an info window,
+    // anchored on the marker for the place that the user selected.
     function showInfoWindow() {
         var marker = this;
         places.getDetails({ placeId: marker.placeResult.place_id },
@@ -220,8 +236,8 @@ function initMap() {
             document.getElementById('iw-phone-row').style.display = 'none';
         }
 
-        // Assign a five-star rating to the hotel, using a black star ('&#10029;')
-        // to indicate the rating the hotel has earned, and a white star ('&#10025;')
+        // Assign a five-star rating to the selected place, using a black star ('&#10029;')
+        // to indicate the rating the place has earned, and a white star ('&#10025;')
         // for the rating points not achieved.
         if (place.rating) {
             var ratingHtml = '';
