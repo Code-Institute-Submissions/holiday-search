@@ -1,5 +1,5 @@
 # Dex: Destination Explorer - Code Institute Milestone Project 2
-A deployed version of this site can be found [here]()
+A deployed version of this site can be found [here](https://jonnytdavies.github.io/holiday-search/)
 
 ## Dex: Destination Explorer Travel App
 The purpose of this website is to provide users with information about a place they are in, or want to visit. For people who want to pre-plan, this website can give the user information about accommodation options as well as finding places to eat and drink. For sightseeing, they have the option to find local attractions, such as Museums or aquariums.
@@ -137,7 +137,7 @@ Through Media queries I have been able to adjust font-sizes, but I developed the
 
 **All tests were done individually on Firefox, Chrome, Safari on Mac and iOS, and returned the same results. I have been unable to test Edge and Internet Explorer, or any browsers on PC.**
 ### Deployment
-This site has been deployed on GitHub Pages, and can be viewed [here]()
+This site has been deployed on GitHub Pages, and can be viewed [here](https://jonnytdavies.github.io/holiday-search/)
 
 #### Credits
 
