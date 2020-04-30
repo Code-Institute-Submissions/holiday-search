@@ -5,7 +5,7 @@ A deployed version of this site can be found [here](https://jonnytdavies.github.
 The purpose of this website is to provide users with information about a place they are in, or want to visit. For people who want to pre-plan, this website can give the user information about accommodation options as well as finding places to eat and drink. For sightseeing, they have the option to find local attractions, such as Museums or aquariums.
 
 ### UX
-Wireframes can be found [here]()
+Wireframes can be found [here](https://github.com/jonnytdavies/holiday-search/tree/master/wireframes)
 
 This website was built for people discovering a new area. It is suitable for people on a day trip or coming for a longer stay, as it can provide information for sightseeing in the day and accommodation for the night, as well as where to find places to eat and drink.
 
